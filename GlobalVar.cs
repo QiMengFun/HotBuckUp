@@ -12,6 +12,11 @@ namespace HotBuckUp
         public static Form_Log LogForm = null;//Log窗口
 
         public static String BackupDirList = "bin/backuplist.txt";
+        public static String IgnoreDirList = "bin/IgnoreDirList.txt";
+        public static String IgnoreExtList = "bin/IgnoreExtList.txt";
+
         public static int SelectedID = -1;
+
+        public static string exeDirectory = AppDomain.CurrentDomain.BaseDirectory;
     }
 }

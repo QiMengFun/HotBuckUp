@@ -1,4 +1,4 @@
-﻿using HotBuckUp.全局函数;
+﻿using HotBuckUp.Func;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,6 +65,17 @@ namespace HotBuckUp
             {
                 Directory.CreateDirectory("bin");
             }
+
+            /* 新建忽略配置 */
+            if (!File.Exists(GlobalVar.IgnoreDirList))
+            {
+                File.WriteAllText(GlobalVar.IgnoreDirList, "每行一个文件夹名字,用于忽略(不压缩),不区分大小写\r\nSystem Volume Information\r\n$RECYCLE.BIN\r\nWindows.old");
+            }
+            if (!File.Exists(GlobalVar.IgnoreExtList))
+            {
+                File.WriteAllText(GlobalVar.IgnoreExtList, "每行一个后缀名字,用于忽略(不压缩),不区分大小写\r\n.tmp\r\n.temp\r\n.cache");
+            }
+
             // 读取配置项
             BackupFileClass.ReadBackupList();
             if (INIConfig.读配置项("bin\\setting.ini", "setting", "TempMode", "False").Equals("True"))
@@ -75,6 +86,8 @@ namespace HotBuckUp
             {
                 temp_mode.Checked = false;
             }
+            //启动计时任务线程
+            TimeBackupThread.thread.Start();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -102,6 +115,34 @@ namespace HotBuckUp
         private void temp_mode_CheckedChanged(object sender, EventArgs e)
         {
             INIConfig.写配置项("bin\\setting.ini", "setting", "TempMode", temp_mode.Checked.ToString());
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(GlobalVar.IgnoreDirList))
+            {
+                File.WriteAllText(GlobalVar.IgnoreDirList, "每行一个文件夹名字,用于忽略(不压缩)\r\nSystem Volume Information\r\n$RECYCLE.BIN\r\nWindows.old");
+            }
+            // 打开文件
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = GlobalVar.exeDirectory + "\\" + GlobalVar.IgnoreDirList,
+                UseShellExecute = true // 使用系统默认程序打开文件
+            });
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(GlobalVar.IgnoreExtList))
+            {
+                File.WriteAllText(GlobalVar.IgnoreExtList, "每行一个后缀名字,用于忽略(不压缩)\r\n.tmp\r\n.temp\r\n.cache");
+            }
+            // 打开文件
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = GlobalVar.exeDirectory + "\\" + GlobalVar.IgnoreExtList,
+                UseShellExecute = true // 使用系统默认程序打开文件
+            });
         }
     }
 }
