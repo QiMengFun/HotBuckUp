@@ -1,4 +1,4 @@
-﻿using HotBuckUp.全局函数;
+﻿using HotBuckUp.Func;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

@@ -91,10 +91,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="全局函数\HotBackup.cs" />
-    <Compile Include="全局函数\INIConfig.cs" />
-    <Compile Include="全局函数\LogClass.cs" />
-    <Compile Include="全局函数\BackupFileClass.cs" />
+    <Compile Include="Func\HotBackup.cs" />
+    <Compile Include="Func\INIConfig.cs" />
+    <Compile Include="Func\LogClass.cs" />
+    <Compile Include="Func\BackupFileClass.cs" />
     <Compile Include="GlobalVar.cs" />
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
