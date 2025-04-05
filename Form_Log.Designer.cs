@@ -39,9 +39,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBoxLog.Location = new System.Drawing.Point(2, 3);
-            this.richTextBoxLog.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBoxLog.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBoxLog.Name = "richTextBoxLog";
-            this.richTextBoxLog.Size = new System.Drawing.Size(988, 430);
+            this.richTextBoxLog.Size = new System.Drawing.Size(994, 430);
             this.richTextBoxLog.TabIndex = 0;
             this.richTextBoxLog.Text = "";
             // 
@@ -52,7 +52,7 @@
             this.checkBoxAutoScroll.Checked = true;
             this.checkBoxAutoScroll.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxAutoScroll.Location = new System.Drawing.Point(5, 437);
-            this.checkBoxAutoScroll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxAutoScroll.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxAutoScroll.Name = "checkBoxAutoScroll";
             this.checkBoxAutoScroll.Size = new System.Drawing.Size(72, 16);
             this.checkBoxAutoScroll.TabIndex = 1;
@@ -61,8 +61,9 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(915, 433);
+            this.button1.Location = new System.Drawing.Point(921, 433);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 22);
             this.button1.TabIndex = 2;
@@ -74,11 +75,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(992, 455);
+            this.ClientSize = new System.Drawing.Size(998, 455);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBoxAutoScroll);
             this.Controls.Add(this.richTextBoxLog);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_Log";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Form_Log  日志";

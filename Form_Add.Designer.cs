@@ -34,25 +34,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.labelX = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.labelX = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(89, 34);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(544, 21);
+            this.textBox2.Size = new System.Drawing.Size(545, 21);
             this.textBox2.TabIndex = 10;
             // 
             // label2
@@ -67,10 +69,12 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(89, 10);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(544, 21);
+            this.textBox1.Size = new System.Drawing.Size(545, 21);
             this.textBox1.TabIndex = 8;
             // 
             // label1
@@ -113,6 +117,77 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "可选项";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(535, 23);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 20);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "__";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(453, 22);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(80, 21);
+            this.textBox5.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(423, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 20);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "__";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(327, 22);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(92, 21);
+            this.textBox4.TabIndex = 6;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(296, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(21, 20);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "__";
+            // 
+            // labelX
+            // 
+            this.labelX.AutoSize = true;
+            this.labelX.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX.Location = new System.Drawing.Point(553, 23);
+            this.labelX.Name = "labelX";
+            this.labelX.Size = new System.Drawing.Size(65, 20);
+            this.labelX.TabIndex = 4;
+            this.labelX.Text = "备份一次";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(214, 22);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(78, 21);
+            this.textBox3.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(187, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(21, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "__";
+            // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -138,82 +213,11 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "定时备份:";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(187, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(21, 20);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "__";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(214, 22);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(78, 21);
-            this.textBox3.TabIndex = 3;
-            // 
-            // labelX
-            // 
-            this.labelX.AutoSize = true;
-            this.labelX.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX.Location = new System.Drawing.Point(553, 23);
-            this.labelX.Name = "labelX";
-            this.labelX.Size = new System.Drawing.Size(65, 20);
-            this.labelX.TabIndex = 4;
-            this.labelX.Text = "备份一次";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(296, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(21, 20);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "__";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(327, 22);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(92, 21);
-            this.textBox4.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(423, 22);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 20);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "__";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(453, 22);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(80, 21);
-            this.textBox5.TabIndex = 8;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(535, 23);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 20);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "__";
-            // 
             // Form_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 153);
+            this.ClientSize = new System.Drawing.Size(641, 153);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
