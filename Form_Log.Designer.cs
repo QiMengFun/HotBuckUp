@@ -94,7 +94,7 @@
             this.Controls.Add(this.richTextBoxLog);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_Log";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_Log  日志";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Log_FormClosing);
             this.Load += new System.EventHandler(this.Form_Log_Load);

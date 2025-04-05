@@ -104,7 +104,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_SubPack";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "分包配置";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_SubPack_FormClosing);
             this.Load += new System.EventHandler(this.Form_SubPack_Load);

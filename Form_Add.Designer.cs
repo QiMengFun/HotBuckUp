@@ -228,7 +228,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_Add";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_添加备份目录";
             this.Load += new System.EventHandler(this.Form_添加备份目录_Load);
             this.groupBox1.ResumeLayout(false);
