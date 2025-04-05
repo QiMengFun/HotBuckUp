@@ -50,7 +50,8 @@ namespace HotBuckUp
         {
             GlobalVar.LogForm.Visible = true;
             /*热备份文件*/
-            new Thread(HotBackup.BackupAll).Start();
+            HotBackup hb = new HotBackup();
+            new Thread(hb.BackupAll).Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -85,6 +86,14 @@ namespace HotBuckUp
             {
                 temp_mode.Checked = false;
             }
+            if (INIConfig.读配置项("bin\\setting.ini", "setting", "SubPackMode", "False").Equals("True"))
+            {
+                sub_pack_mode.Checked = true;
+            }
+            else
+            {
+                sub_pack_mode.Checked = false;
+            }
             //启动计时任务线程
             TimeBackupThread.thread.Start();
         }
@@ -101,7 +110,8 @@ namespace HotBuckUp
             {
                 GlobalVar.LogForm.Visible = true;
                 /*热备份文件*/
-                new Thread(HotBackup.BackupSelect).Start();
+                HotBackup hb = new HotBackup();
+                new Thread(hb.BackupSelect).Start();
             }
         }
 
@@ -146,6 +156,16 @@ namespace HotBuckUp
         private void button8_Click(object sender, EventArgs e)
         {
             GlobalVar.LogForm.Visible = true;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            GlobalVar.SubPackForm.Visible = true;
+        }
+
+        private void sub_pack_mode_CheckedChanged(object sender, EventArgs e)
+        {
+            INIConfig.写配置项("bin\\setting.ini", "setting", "SubPackMode", sub_pack_mode.Checked.ToString());
         }
     }
 }

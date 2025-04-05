@@ -10,6 +10,7 @@ namespace HotBuckUp
     {
         public static Form_Main MainForm = null;//主窗口
         public static Form_Log LogForm = null;//Log窗口
+        public static Form_SubPack SubPackForm = null;//分包窗口
 
         public static String BackupDirList = "bin/backuplist.txt";
         public static String IgnoreDirList = "bin/IgnoreDirList.txt";

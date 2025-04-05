@@ -15,25 +15,25 @@ namespace HotBuckUp.Func
     internal class HotBackup
     {
 
-        private static long totalBytesToBackup = 0;
-        private static long backedUpBytes = 0;
-        private static bool isBackupCompleted = false;
+        private long totalBytesToBackup = 0;
+        private long backedUpBytes = 0;
+        private bool isBackupCompleted = false;
         private const int MaxRetryCount = 5;
         private const int RetryDelayMilliseconds = 3000;
         private const int 缓冲区大小 = 2 * 1024 * 1024; // 2MB
         private const int 压缩等级 = 1;
 
         // 定义需要忽略的文件夹名称列表
-        public static HashSet<string> IgnoredFolders;
+        public HashSet<string> IgnoredFolders;
         // 定义需要忽略的文件扩展名列表
-        public static HashSet<string> IgnoredFileExtensions;
+        public HashSet<string> IgnoredFileExtensions;
 
-        public static void ReadIgnored()
+        public void ReadIgnored()
         {
             IgnoredFolders = new HashSet<string>(File.ReadAllLines(GlobalVar.IgnoreDirList), StringComparer.OrdinalIgnoreCase);
             IgnoredFileExtensions = new HashSet<string>(File.ReadAllLines(GlobalVar.IgnoreExtList), StringComparer.OrdinalIgnoreCase);
         }
-        public static void BackupAll()
+        public void BackupAll()
         {
             ReadIgnored();
             foreach (String STR in GlobalVar.MainForm.listBox1.Items)
@@ -45,7 +45,7 @@ namespace HotBuckUp.Func
                 BackupS(rootDir,toDir);
             }
         }
-        public static void BackupSelect()
+        public void BackupSelect()
         {
             ReadIgnored();
             String[] 列表数组 = GlobalVar.MainForm.listBox1.Items[GlobalVar.SelectedID].ToString().Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
@@ -53,7 +53,7 @@ namespace HotBuckUp.Func
             string toDir = 列表数组[1];
             BackupS(rootDir, toDir);
         }
-        public static void BackupID(int id)
+        public void BackupID(int id)
         {
             ReadIgnored();
             String[] 列表数组 = GlobalVar.MainForm.listBox1.Items[id].ToString().Split(new char[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
@@ -61,13 +61,13 @@ namespace HotBuckUp.Func
             string toDir = 列表数组[1];
             BackupS(rootDir, toDir);
         }
-        public static void BackupSrcToDir(string rootDir,string toDir)
+        public void BackupSrcToDir(string rootDir,string toDir)
         {
             ReadIgnored();
             BackupS(rootDir, toDir);
         }
 
-        static void BackupS(string rootDir, string toDir)
+        private void BackupS(string rootDir, string toDir)
         {
             string rootDirName = new DirectoryInfo(rootDir).Name;
             if (rootDir.Length <= 3)
@@ -75,27 +75,77 @@ namespace HotBuckUp.Func
                 rootDirName = rootDir.Substring(0, 1);
             }
             string ZipName = $"{rootDirName}_{DateTime.Now:yyyy-MM-dd HH-mm-ss}.zip";
+            string ZipName_DirName = $"{rootDirName}_{DateTime.Now:yyyy-MM-dd HH-mm-ss}";
 
             LogClass.AppendLog("开始压缩 " + rootDir + " -> " + ZipName, Color.Green);
             GlobalVar.MainForm.label1.Text = "数据预估中...(并非未响应状态)";
+            GlobalVar.LogForm.label1.Text = "数据预估中...(并非未响应状态)";
             if (GlobalVar.MainForm.temp_mode.Checked)
             {
                 String tempzip = Path.Combine("temp", ZipName);
                 BackupSub(rootDir, tempzip);
-                LogClass.AppendLog("开始拷贝 " + ZipName + " -> " + toDir, Color.Green);
-                File.Copy(tempzip, Path.Combine(toDir, ZipName));
+
+                if (GlobalVar.MainForm.sub_pack_mode.Checked)
+                {
+                    if (new FileInfo(tempzip).Length >= long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L)
+                    {
+                        LogClass.AppendLog("开始分包 " + ZipName + " -> " + toDir, Color.Green);
+                        // 分割
+                        if (GlobalVar.SubPackForm.create_subpack_dir.Checked)
+                        {
+                            Directory.CreateDirectory(Path.Combine(toDir, ZipName_DirName));
+                            ZipSplit.SplitFile(tempzip, Path.Combine(toDir, ZipName_DirName, ZipName), long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L);
+                        }
+                        else
+                        {
+                            ZipSplit.SplitFile(tempzip, Path.Combine(toDir, ZipName), long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L);
+                        }
+                    }
+                    else
+                    {
+                        LogClass.AppendLog("开始拷贝 " + ZipName + " -> " + toDir, Color.Green);
+                        File.Copy(tempzip, Path.Combine(toDir, ZipName));
+                    }
+                }
+                else
+                {
+                    LogClass.AppendLog("开始拷贝 " + ZipName + " -> " + toDir, Color.Green);
+                    File.Copy(tempzip, Path.Combine(toDir, ZipName));
+                }
                 LogClass.AppendLog("开始删除 temp->" + ZipName, Color.Green);
                 File.Delete(tempzip);
             }
             else
             {
-                BackupSub(rootDir, Path.Combine(toDir, ZipName));
+                String tarFile = Path.Combine(toDir, ZipName);
+                BackupSub(rootDir, tarFile);
+
+                // 分割
+                if (GlobalVar.MainForm.sub_pack_mode.Checked)
+                {
+                    if (new FileInfo(tarFile).Length >= long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L)
+                    {
+                        if (GlobalVar.SubPackForm.create_subpack_dir.Checked)
+                        {
+                            Directory.CreateDirectory(Path.Combine(toDir, ZipName_DirName));
+                            ZipSplit.SplitFile(tarFile, Path.Combine(toDir, ZipName_DirName, ZipName), long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L);
+                        }
+                        else
+                        {
+                            ZipSplit.SplitFile(tarFile, tarFile, long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L);
+                        }
+                        File.Delete(tarFile);
+                    }
+                }
             }
             LogClass.AppendLog("完成!", Color.Green);
         }
 
+        
+
+
         // 修改后的备份方法
-        static void BackupSub(string sourceDirectory, string backupZipFilePath)
+        private void BackupSub(string sourceDirectory, string backupZipFilePath)
         {
             try
             {
@@ -120,7 +170,7 @@ namespace HotBuckUp.Func
         }
 
         // 修改后的文件备份方法
-        static void BackupFile(string file, string rootPath, ZipOutputStream zipStream)
+        private void BackupFile(string file, string rootPath, ZipOutputStream zipStream)
         {
             bool success = false;
             int retryCount = 0;
@@ -184,7 +234,7 @@ namespace HotBuckUp.Func
             }
         }
 
-        private static bool WriteFileToZip(Stream fileStream, string filePath, string rootPath, ZipOutputStream zipStream)
+        private bool WriteFileToZip(Stream fileStream, string filePath, string rootPath, ZipOutputStream zipStream)
         {
             try
             {
@@ -215,7 +265,7 @@ namespace HotBuckUp.Func
         }
 
         // 修改后的备份目录方法
-        static void BackupDirectory(string rootPath, string currentPath, ZipOutputStream zipStream)
+        private void BackupDirectory(string rootPath, string currentPath, ZipOutputStream zipStream)
         {
             try
             {
@@ -244,7 +294,7 @@ namespace HotBuckUp.Func
         }
 
 
-        static long CalculateDirectorySize(string path)
+        private long CalculateDirectorySize(string path)
         {
             if (!Directory.Exists(path))
                 return 0;
@@ -292,7 +342,7 @@ namespace HotBuckUp.Func
         }
 
 
-        static void ShowProgress()
+        private void ShowProgress()
         {
             if (GlobalVar.LogForm != null)
             {
@@ -300,10 +350,12 @@ namespace HotBuckUp.Func
                 {
                     double progress = (double)backedUpBytes / totalBytesToBackup * 100;
                     GlobalVar.MainForm.label1.Text = $"备份进度: {progress:F2}% 已备份: {backedUpBytes / 1024 / 1024:F2} MB / {totalBytesToBackup / 1024 / 1024:F2} MB";
+                    GlobalVar.LogForm.label1.Text = $"备份进度: {progress:F2}% 已备份: {backedUpBytes / 1024 / 1024:F2} MB / {totalBytesToBackup / 1024 / 1024:F2} MB";
                 }
                 if (isBackupCompleted)
                 {
                     GlobalVar.MainForm.label1.Text = "备份已完成！";
+                    GlobalVar.LogForm.label1.Text = "备份已完成！";
                 }
             }
         }

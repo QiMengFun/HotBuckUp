@@ -33,7 +33,8 @@ namespace HotBuckUp
                         {
                             if (dateTime.Hour.ToString().Equals(Arr[4]) && dateTime.Minute.ToString().Equals(Arr[5]) && dateTime.Second == 1)
                             {
-                                HotBackup.BackupSrcToDir(Arr[0], Arr[1]);
+                                HotBackup hb = new HotBackup();
+                                hb.BackupSrcToDir(Arr[0], Arr[1]);
                             }
                         }
                     }
@@ -43,7 +44,8 @@ namespace HotBuckUp
                         {
                             if (dateTime.Hour.ToString().Equals(Arr[4]) && dateTime.Minute.ToString().Equals(Arr[5]) && dateTime.Second == 1)
                             {
-                                HotBackup.BackupSrcToDir(Arr[0], Arr[1]);
+                                HotBackup hb = new HotBackup();
+                                hb.BackupSrcToDir(Arr[0], Arr[1]);
                             }
                         }
                     }
@@ -51,7 +53,8 @@ namespace HotBuckUp
                     {
                         if (dateTime.Hour.ToString().Equals(Arr[4]) && dateTime.Minute.ToString().Equals(Arr[5]) && dateTime.Second == 1)
                         {
-                            HotBackup.BackupSrcToDir(Arr[0], Arr[1]);
+                            HotBackup hb = new HotBackup();
+                            hb.BackupSrcToDir(Arr[0], Arr[1]);
                         }
                     }
                 }

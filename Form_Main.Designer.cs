@@ -41,6 +41,8 @@
             this.button7 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
+            this.sub_pack_mode = new System.Windows.Forms.CheckBox();
+            this.button9 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -127,7 +129,7 @@
             this.temp_mode.AutoSize = true;
             this.temp_mode.Checked = true;
             this.temp_mode.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.temp_mode.Location = new System.Drawing.Point(838, 363);
+            this.temp_mode.Location = new System.Drawing.Point(838, 341);
             this.temp_mode.Margin = new System.Windows.Forms.Padding(2);
             this.temp_mode.Name = "temp_mode";
             this.temp_mode.Size = new System.Drawing.Size(96, 16);
@@ -140,7 +142,7 @@
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button5.Location = new System.Drawing.Point(936, 358);
+            this.button5.Location = new System.Drawing.Point(936, 336);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(16, 26);
@@ -166,7 +168,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Location = new System.Drawing.Point(838, 280);
+            this.groupBox2.Location = new System.Drawing.Point(838, 259);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(111, 73);
             this.groupBox2.TabIndex = 13;
@@ -208,11 +210,41 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // sub_pack_mode
+            // 
+            this.sub_pack_mode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sub_pack_mode.AutoSize = true;
+            this.sub_pack_mode.Checked = true;
+            this.sub_pack_mode.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.sub_pack_mode.Location = new System.Drawing.Point(838, 366);
+            this.sub_pack_mode.Margin = new System.Windows.Forms.Padding(2);
+            this.sub_pack_mode.Name = "sub_pack_mode";
+            this.sub_pack_mode.Size = new System.Drawing.Size(72, 16);
+            this.sub_pack_mode.TabIndex = 16;
+            this.sub_pack_mode.Text = "分包模式";
+            this.sub_pack_mode.UseVisualStyleBackColor = true;
+            this.sub_pack_mode.CheckedChanged += new System.EventHandler(this.sub_pack_mode_CheckedChanged);
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button9.Location = new System.Drawing.Point(907, 361);
+            this.button9.Margin = new System.Windows.Forms.Padding(2);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(45, 26);
+            this.button9.TabIndex = 17;
+            this.button9.Text = "配置";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 466);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.sub_pack_mode);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
@@ -251,6 +283,8 @@
         private System.Windows.Forms.Button button7;
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button8;
+        public System.Windows.Forms.CheckBox sub_pack_mode;
+        private System.Windows.Forms.Button button9;
     }
 }
 
