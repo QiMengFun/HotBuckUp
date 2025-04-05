@@ -17,6 +17,7 @@ namespace HotBuckUp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             GlobalVar.MainForm = new Form_Main();
+            GlobalVar.LogForm = new Form_Log();
             Application.Run(GlobalVar.MainForm);
         }
     }

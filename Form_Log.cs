@@ -36,5 +36,16 @@ namespace HotBuckUp
 
             richTextBoxLog.Clear();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ClearLog();
+        }
+
+        private void Form_Log_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GlobalVar.LogForm.Visible = false;
+            e.Cancel = true;
+        }
     }
 }

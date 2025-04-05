@@ -77,7 +77,7 @@ namespace HotBuckUp.Func
             string ZipName = $"{rootDirName}_{DateTime.Now:yyyy-MM-dd HH-mm-ss}.zip";
 
             LogClass.AppendLog("开始压缩 " + rootDir + " -> " + ZipName, Color.Green);
-            GlobalVar.LogForm.label1.Text = "数据预估中...(并非未响应状态)";
+            GlobalVar.MainForm.label1.Text = "数据预估中...(并非未响应状态)";
             if (GlobalVar.MainForm.temp_mode.Checked)
             {
                 String tempzip = Path.Combine("temp", ZipName);
@@ -299,11 +299,11 @@ namespace HotBuckUp.Func
                 if (totalBytesToBackup > 0)
                 {
                     double progress = (double)backedUpBytes / totalBytesToBackup * 100;
-                    GlobalVar.LogForm.label1.Text = $"备份进度: {progress:F2}% 已备份: {backedUpBytes / 1024 / 1024:F2} MB / {totalBytesToBackup / 1024 / 1024:F2} MB";
+                    GlobalVar.MainForm.label1.Text = $"备份进度: {progress:F2}% 已备份: {backedUpBytes / 1024 / 1024:F2} MB / {totalBytesToBackup / 1024 / 1024:F2} MB";
                 }
                 if (isBackupCompleted)
                 {
-                    GlobalVar.LogForm.label1.Text = "备份已完成！";
+                    GlobalVar.MainForm.label1.Text = "备份已完成！";
                 }
             }
         }

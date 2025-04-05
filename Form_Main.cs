@@ -48,8 +48,7 @@ namespace HotBuckUp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GlobalVar.LogForm = new Form_Log();
-            GlobalVar.LogForm.Show();
+            GlobalVar.LogForm.Visible = true;
             /*热备份文件*/
             new Thread(HotBackup.BackupAll).Start();
         }
@@ -100,8 +99,7 @@ namespace HotBuckUp
             GlobalVar.SelectedID = listBox1.SelectedIndex;
             if (GlobalVar.SelectedID != -1)
             {
-                GlobalVar.LogForm = new Form_Log();
-                GlobalVar.LogForm.Show();
+                GlobalVar.LogForm.Visible = true;
                 /*热备份文件*/
                 new Thread(HotBackup.BackupSelect).Start();
             }
@@ -143,6 +141,11 @@ namespace HotBuckUp
                 FileName = GlobalVar.exeDirectory + "\\" + GlobalVar.IgnoreExtList,
                 UseShellExecute = true // 使用系统默认程序打开文件
             });
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            GlobalVar.LogForm.Visible = true;
         }
     }
 }
