@@ -31,8 +31,8 @@ namespace HotBuckUp
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Func.INIConfig.写配置项("bin\\setting.ini", "setting", "SubPackSize", sub_pack_size.Text);
-            INIConfig.写配置项("bin\\setting.ini", "setting", "TempMode", create_subpack_dir.Checked.ToString());
+            INIConfig.写配置项("bin\\setting.ini", "setting", "SubPackSize", sub_pack_size.Text);
+            INIConfig.写配置项("bin\\setting.ini", "setting", "SubPackCreateDir", create_subpack_dir.Checked.ToString());
             Visible = false;
         }
     }
