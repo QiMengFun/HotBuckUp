@@ -43,6 +43,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.sub_pack_mode = new System.Windows.Forms.CheckBox();
             this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -53,11 +54,11 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(4, 1);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(5, 1);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(834, 442);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(1112, 552);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "备份数据列表";
@@ -68,20 +69,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 12;
-            this.listBox1.Location = new System.Drawing.Point(4, 15);
-            this.listBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(5, 19);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(827, 424);
+            this.listBox1.Size = new System.Drawing.Size(1101, 529);
             this.listBox1.TabIndex = 0;
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(843, 9);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Location = new System.Drawing.Point(1124, 11);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 22);
+            this.button2.Size = new System.Drawing.Size(140, 28);
             this.button2.TabIndex = 6;
             this.button2.Text = "添加目录";
             this.button2.UseVisualStyleBackColor = true;
@@ -90,10 +91,10 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(843, 415);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(1124, 519);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 22);
+            this.button1.Size = new System.Drawing.Size(140, 28);
             this.button1.TabIndex = 7;
             this.button1.Text = "全部备份";
             this.button1.UseVisualStyleBackColor = true;
@@ -102,10 +103,10 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(843, 35);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Location = new System.Drawing.Point(1124, 44);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 22);
+            this.button3.Size = new System.Drawing.Size(140, 28);
             this.button3.TabIndex = 8;
             this.button3.Text = "删除目录";
             this.button3.UseVisualStyleBackColor = true;
@@ -114,10 +115,10 @@
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(843, 390);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Location = new System.Drawing.Point(1124, 488);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(105, 22);
+            this.button4.Size = new System.Drawing.Size(140, 28);
             this.button4.TabIndex = 9;
             this.button4.Text = "备份选中";
             this.button4.UseVisualStyleBackColor = true;
@@ -129,10 +130,10 @@
             this.temp_mode.AutoSize = true;
             this.temp_mode.Checked = true;
             this.temp_mode.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.temp_mode.Location = new System.Drawing.Point(838, 341);
-            this.temp_mode.Margin = new System.Windows.Forms.Padding(2);
+            this.temp_mode.Location = new System.Drawing.Point(1124, 427);
+            this.temp_mode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.temp_mode.Name = "temp_mode";
-            this.temp_mode.Size = new System.Drawing.Size(96, 16);
+            this.temp_mode.Size = new System.Drawing.Size(121, 19);
             this.temp_mode.TabIndex = 10;
             this.temp_mode.Text = "Temp缓冲模式";
             this.temp_mode.UseVisualStyleBackColor = true;
@@ -142,10 +143,10 @@
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button5.Location = new System.Drawing.Point(936, 336);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Location = new System.Drawing.Point(1248, 420);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(16, 26);
+            this.button5.Size = new System.Drawing.Size(21, 32);
             this.button5.TabIndex = 11;
             this.button5.Text = "?";
             this.button5.UseVisualStyleBackColor = true;
@@ -154,10 +155,10 @@
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.Location = new System.Drawing.Point(4, 19);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Location = new System.Drawing.Point(5, 24);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(105, 22);
+            this.button6.Size = new System.Drawing.Size(140, 28);
             this.button6.TabIndex = 12;
             this.button6.Text = "编辑忽略目录";
             this.button6.UseVisualStyleBackColor = true;
@@ -166,11 +167,14 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.button10);
             this.groupBox2.Controls.Add(this.button7);
             this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Location = new System.Drawing.Point(838, 259);
+            this.groupBox2.Location = new System.Drawing.Point(1117, 295);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(111, 73);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(148, 120);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "其他辅助配置";
@@ -178,10 +182,10 @@
             // button7
             // 
             this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button7.Location = new System.Drawing.Point(3, 45);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
+            this.button7.Location = new System.Drawing.Point(4, 56);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(105, 22);
+            this.button7.Size = new System.Drawing.Size(140, 28);
             this.button7.TabIndex = 13;
             this.button7.Text = "编辑忽略后缀";
             this.button7.UseVisualStyleBackColor = true;
@@ -191,20 +195,19 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.Location = new System.Drawing.Point(2, 447);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(3, 559);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(833, 20);
+            this.label1.Size = new System.Drawing.Size(1111, 25);
             this.label1.TabIndex = 14;
             this.label1.Text = "此处显示实时状态";
             // 
             // button8
             // 
             this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button8.Location = new System.Drawing.Point(844, 441);
-            this.button8.Margin = new System.Windows.Forms.Padding(2);
+            this.button8.Location = new System.Drawing.Point(1125, 551);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(105, 22);
+            this.button8.Size = new System.Drawing.Size(140, 28);
             this.button8.TabIndex = 15;
             this.button8.Text = "显示Log";
             this.button8.UseVisualStyleBackColor = true;
@@ -216,10 +219,10 @@
             this.sub_pack_mode.AutoSize = true;
             this.sub_pack_mode.Checked = true;
             this.sub_pack_mode.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.sub_pack_mode.Location = new System.Drawing.Point(838, 366);
-            this.sub_pack_mode.Margin = new System.Windows.Forms.Padding(2);
+            this.sub_pack_mode.Location = new System.Drawing.Point(1124, 459);
+            this.sub_pack_mode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sub_pack_mode.Name = "sub_pack_mode";
-            this.sub_pack_mode.Size = new System.Drawing.Size(72, 16);
+            this.sub_pack_mode.Size = new System.Drawing.Size(89, 19);
             this.sub_pack_mode.TabIndex = 16;
             this.sub_pack_mode.Text = "分包模式";
             this.sub_pack_mode.UseVisualStyleBackColor = true;
@@ -229,20 +232,32 @@
             // 
             this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button9.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button9.Location = new System.Drawing.Point(907, 361);
-            this.button9.Margin = new System.Windows.Forms.Padding(2);
+            this.button9.Location = new System.Drawing.Point(1209, 451);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(45, 26);
+            this.button9.Size = new System.Drawing.Size(60, 32);
             this.button9.TabIndex = 17;
             this.button9.Text = "配置";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // button10
+            // 
+            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button10.Location = new System.Drawing.Point(4, 86);
+            this.button10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(140, 28);
+            this.button10.TabIndex = 14;
+            this.button10.Text = "编辑忽略文件";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
             // Form_Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 466);
+            this.ClientSize = new System.Drawing.Size(1273, 582);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.sub_pack_mode);
             this.Controls.Add(this.button8);
@@ -255,7 +270,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form_Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "备份程序";
@@ -285,6 +300,7 @@
         private System.Windows.Forms.Button button8;
         public System.Windows.Forms.CheckBox sub_pack_mode;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
     }
 }
 

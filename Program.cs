@@ -22,6 +22,7 @@ namespace HotBuckUp
             GlobalVar.SubPackForm = new Form_SubPack();
             /* 初始化子窗口内容 */
             GlobalVar.SubPackForm.sub_pack_size.Text = Func.INIConfig.读配置项("bin\\setting.ini", "setting", "SubPackSize", "4096");
+            GlobalVar.SubPackForm.sub_pack_cachesize.Text = INIConfig.读配置项("bin\\setting.ini", "setting", "SubPackCacheSize", "128");
             if (INIConfig.读配置项("bin\\setting.ini", "setting", "SubPackCreateDir", "False").Equals("True"))
             {
                 GlobalVar.SubPackForm.create_subpack_dir.Checked = true;

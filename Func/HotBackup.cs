@@ -26,12 +26,15 @@ namespace HotBuckUp.Func
         // 定义需要忽略的文件夹名称列表
         public HashSet<string> IgnoredFolders;
         // 定义需要忽略的文件扩展名列表
+        public HashSet<string> IgnoredExtExtensions;
+        // 定义需要忽略的文件名列表
         public HashSet<string> IgnoredFileExtensions;
 
         public void ReadIgnored()
         {
             IgnoredFolders = new HashSet<string>(File.ReadAllLines(GlobalVar.IgnoreDirList), StringComparer.OrdinalIgnoreCase);
-            IgnoredFileExtensions = new HashSet<string>(File.ReadAllLines(GlobalVar.IgnoreExtList), StringComparer.OrdinalIgnoreCase);
+            IgnoredExtExtensions = new HashSet<string>(File.ReadAllLines(GlobalVar.IgnoreExtList), StringComparer.OrdinalIgnoreCase);
+            IgnoredFileExtensions = new HashSet<string>(File.ReadAllLines(GlobalVar.IgnoreFileList), StringComparer.OrdinalIgnoreCase);
         }
         public void BackupAll()
         {
@@ -281,7 +284,12 @@ namespace HotBuckUp.Func
                 foreach (string file in Directory.GetFiles(currentPath))
                 {
                     string extension = Path.GetExtension(file);
-                    if (IgnoredFileExtensions.Contains(extension)) continue;
+                    string FileNameAndExt = Path.GetFileName(file);
+                    string FileName = Path.GetFileNameWithoutExtension(file);
+                    if (IgnoredExtExtensions.Contains(extension)) continue;
+
+                    if (IgnoredFileExtensions.Contains(FileNameAndExt)) continue;
+                    if (IgnoredFileExtensions.Contains(FileName)) continue;
 
                     BackupFile(file, rootPath, zipStream);
                 }
@@ -314,10 +322,15 @@ namespace HotBuckUp.Func
                 foreach (string file in Directory.GetFiles(path))
                 {
                     string extension = Path.GetExtension(file);
-                    if (IgnoredFileExtensions.Contains(extension))
+                    string FileNameAndExt = Path.GetFileName(file);
+                    string FileName = Path.GetFileNameWithoutExtension(file);
+                    if (IgnoredExtExtensions.Contains(extension))
                     {
                         continue;
                     }
+                    if (IgnoredFileExtensions.Contains(FileNameAndExt)) { continue; }
+                    if (IgnoredFileExtensions.Contains(FileName)) { continue; }
+
 
                     try
                     {

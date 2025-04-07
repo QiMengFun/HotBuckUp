@@ -69,11 +69,15 @@ namespace HotBuckUp
             /* 新建忽略配置 */
             if (!File.Exists(GlobalVar.IgnoreDirList))
             {
-                File.WriteAllText(GlobalVar.IgnoreDirList, "每行一个文件夹名字,用于忽略(不压缩),不区分大小写\r\nSystem Volume Information\r\n$RECYCLE.BIN\r\nWindows.old");
+                File.WriteAllText(GlobalVar.IgnoreDirList, GlobalVar.Def_IgnoreDirList);
+            }
+            if (!File.Exists(GlobalVar.IgnoreFileList))
+            {
+                File.WriteAllText(GlobalVar.IgnoreFileList, GlobalVar.IgnoreFileList);
             }
             if (!File.Exists(GlobalVar.IgnoreExtList))
             {
-                File.WriteAllText(GlobalVar.IgnoreExtList, "每行一个后缀名字,用于忽略(不压缩),不区分大小写\r\n.tmp\r\n.temp\r\n.cache");
+                File.WriteAllText(GlobalVar.IgnoreExtList, GlobalVar.IgnoreExtList);
             }
 
             // 读取配置项
@@ -129,7 +133,7 @@ namespace HotBuckUp
         {
             if (!File.Exists(GlobalVar.IgnoreDirList))
             {
-                File.WriteAllText(GlobalVar.IgnoreDirList, "每行一个文件夹名字,用于忽略(不压缩)\r\nSystem Volume Information\r\n$RECYCLE.BIN\r\nWindows.old");
+                File.WriteAllText(GlobalVar.IgnoreDirList, GlobalVar.Def_IgnoreDirList);
             }
             // 打开文件
             Process.Start(new ProcessStartInfo
@@ -143,12 +147,26 @@ namespace HotBuckUp
         {
             if (!File.Exists(GlobalVar.IgnoreExtList))
             {
-                File.WriteAllText(GlobalVar.IgnoreExtList, "每行一个后缀名字,用于忽略(不压缩)\r\n.tmp\r\n.temp\r\n.cache");
+                File.WriteAllText(GlobalVar.IgnoreExtList, GlobalVar.Def_IgnoreExtList);
             }
             // 打开文件
             Process.Start(new ProcessStartInfo
             {
                 FileName = GlobalVar.exeDirectory + "\\" + GlobalVar.IgnoreExtList,
+                UseShellExecute = true // 使用系统默认程序打开文件
+            });
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(GlobalVar.IgnoreFileList))
+            {
+                File.WriteAllText(GlobalVar.IgnoreFileList, GlobalVar.Def_IgnoreFileList);
+            }
+            // 打开文件
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = GlobalVar.exeDirectory + "\\" + GlobalVar.IgnoreFileList,
                 UseShellExecute = true // 使用系统默认程序打开文件
             });
         }
@@ -167,5 +185,6 @@ namespace HotBuckUp
         {
             INIConfig.写配置项("bin\\setting.ini", "setting", "SubPackMode", sub_pack_mode.Checked.ToString());
         }
+
     }
 }
