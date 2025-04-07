@@ -80,25 +80,34 @@ namespace HotBuckUp.Func
             LogClass.AppendLog("开始压缩 " + rootDir + " -> " + ZipName, Color.Green);
             GlobalVar.MainForm.label1.Text = "数据预估中...(并非未响应状态)";
             GlobalVar.LogForm.label1.Text = "数据预估中...(并非未响应状态)";
-            if (GlobalVar.MainForm.temp_mode.Checked)
+            long SplitSize = long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L;
+            try
             {
-                String tempzip = Path.Combine("temp", ZipName);
-                BackupSub(rootDir, tempzip);
-
-                if (GlobalVar.MainForm.sub_pack_mode.Checked)
+                if (GlobalVar.MainForm.temp_mode.Checked)
                 {
-                    if (new FileInfo(tempzip).Length >= long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L)
+                    String tempzip = Path.Combine("temp", ZipName);
+                    BackupSub(rootDir, tempzip);
+
+                    if (GlobalVar.MainForm.sub_pack_mode.Checked)
                     {
-                        LogClass.AppendLog("开始分包 " + ZipName + " -> " + toDir, Color.Green);
-                        // 分割
-                        if (GlobalVar.SubPackForm.create_subpack_dir.Checked)
+                        if (new FileInfo(tempzip).Length >= SplitSize)
                         {
-                            Directory.CreateDirectory(Path.Combine(toDir, ZipName_DirName));
-                            ZipSplit.SplitFile(tempzip, Path.Combine(toDir, ZipName_DirName, ZipName), long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L);
+                            LogClass.AppendLog("开始分包 " + ZipName + " -> " + toDir, Color.Green);
+                            // 分割
+                            if (GlobalVar.SubPackForm.create_subpack_dir.Checked)
+                            {
+                                Directory.CreateDirectory(Path.Combine(toDir, ZipName_DirName));
+                                ZipSplit.SplitFile(tempzip, Path.Combine(toDir, ZipName_DirName, ZipName), SplitSize);
+                            }
+                            else
+                            {
+                                ZipSplit.SplitFile(tempzip, Path.Combine(toDir, ZipName), SplitSize);
+                            }
                         }
                         else
                         {
-                            ZipSplit.SplitFile(tempzip, Path.Combine(toDir, ZipName), long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L);
+                            LogClass.AppendLog("开始拷贝 " + ZipName + " -> " + toDir, Color.Green);
+                            File.Copy(tempzip, Path.Combine(toDir, ZipName));
                         }
                     }
                     else
@@ -106,39 +115,38 @@ namespace HotBuckUp.Func
                         LogClass.AppendLog("开始拷贝 " + ZipName + " -> " + toDir, Color.Green);
                         File.Copy(tempzip, Path.Combine(toDir, ZipName));
                     }
+                    LogClass.AppendLog("开始删除 temp->" + ZipName, Color.Green);
+                    File.Delete(tempzip);
                 }
                 else
                 {
-                    LogClass.AppendLog("开始拷贝 " + ZipName + " -> " + toDir, Color.Green);
-                    File.Copy(tempzip, Path.Combine(toDir, ZipName));
-                }
-                LogClass.AppendLog("开始删除 temp->" + ZipName, Color.Green);
-                File.Delete(tempzip);
-            }
-            else
-            {
-                String tarFile = Path.Combine(toDir, ZipName);
-                BackupSub(rootDir, tarFile);
+                    String tarFile = Path.Combine(toDir, ZipName);
+                    BackupSub(rootDir, tarFile);
 
-                // 分割
-                if (GlobalVar.MainForm.sub_pack_mode.Checked)
-                {
-                    if (new FileInfo(tarFile).Length >= long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L)
+                    // 分割
+                    if (GlobalVar.MainForm.sub_pack_mode.Checked)
                     {
-                        if (GlobalVar.SubPackForm.create_subpack_dir.Checked)
+                        if (new FileInfo(tarFile).Length >= SplitSize)
                         {
-                            Directory.CreateDirectory(Path.Combine(toDir, ZipName_DirName));
-                            ZipSplit.SplitFile(tarFile, Path.Combine(toDir, ZipName_DirName, ZipName), long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L);
+                            if (GlobalVar.SubPackForm.create_subpack_dir.Checked)
+                            {
+                                Directory.CreateDirectory(Path.Combine(toDir, ZipName_DirName));
+                                ZipSplit.SplitFile(tarFile, Path.Combine(toDir, ZipName_DirName, ZipName), SplitSize);
+                            }
+                            else
+                            {
+                                ZipSplit.SplitFile(tarFile, tarFile, SplitSize);
+                            }
+                            File.Delete(tarFile);
                         }
-                        else
-                        {
-                            ZipSplit.SplitFile(tarFile, tarFile, long.Parse(GlobalVar.SubPackForm.sub_pack_size.Text) * 1024L * 1024L);
-                        }
-                        File.Delete(tarFile);
                     }
                 }
+                LogClass.AppendLog("完成!", Color.Green);
             }
-            LogClass.AppendLog("完成!", Color.Green);
+            catch(Exception ex)
+            {
+                LogClass.AppendLog($"[严重][BackupS]备份过程中出现错误: {ex.Message}\r\n{ex.StackTrace}", Color.Red);
+            }
         }
 
         
